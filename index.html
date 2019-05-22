@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>JS Drum Kit</title>
+		<link rel="stylesheet" href="style.css" />
+		<script src="js/js.js"></script>
+		<script src="js/utls/Track.js"></script>
+		<script src="js/utls/DrumPadButton.js"></script>
+	</head>
+
+	<body>
+		<h2>Beats Maker</h2>
+		<div class="keys"></div>
+
+		<div class="custom-button-cont">
+			<div class="key create-key">
+				<kbd>+</kbd>
+				<span class="sound">Custom</span>
+				<input type="file" hidden />
+			</div>
+		</div>
+
+		<div class="record-studio">
+			<div id="record-loop-button"></div>
+			<div class="record-loop-container"></div>
+		</div>
+
+		<div class="audioTagCont"></div>
+
+		<script>
+			init({
+				keys: [
+					{
+						keyCode: 65,
+						label: 'clap',
+						sound: 'sounds/clap.wav',
+					},
+					{
+						keyCode: 83,
+						label: 'hihat',
+						sound: 'sounds/hihat.wav',
+					},
+					{
+						keyCode: 68,
+						label: 'kick',
+						sound: 'sounds/kick.wav',
+					},
+					{
+						keyCode: 70,
+						label: 'openhat',
+						sound: 'sounds/openhat.wav',
+					},
+					{
+						keyCode: 71,
+						label: 'boom',
+						sound: 'sounds/boom.wav',
+					},
+					{
+						keyCode: 72,
+						label: 'ride',
+						sound: 'sounds/ride.wav',
+					},
+					{
+						keyCode: 74,
+						label: 'snare',
+						sound: 'sounds/snare.wav',
+					},
+					{
+						keyCode: 75,
+						label: 'tom',
+						sound: 'sounds/tom.wav',
+					},
+					{
+						keyCode: 76,
+						label: 'tink',
+						sound: 'sounds/tink.wav',
+					},
+				],
+			});
+		</script>
+	</body>
+</html>
