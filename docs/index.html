@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>JS Drum Kit</title>
+	<link rel="stylesheet" href="style.css" />
+	<script src="js/js.js"></script>
+	<script src="js/utls/Track.js"></script>
+	<script src="js/utls/DrumPadButton.js"></script>
+ </head>
+
+<body>
+<div class="record-studio">
+	<h2 style="width:100%;">Beat Maker</h2>
+	<div class="keys"></div>
+
+	<hr>
+
+	<!-- <div class="custom-button-cont">
+		<div class="key create-key">
+			<kbd>+</kbd>
+			<span class="sound">Custom</span>
+			<input type="file" hidden />
+		</div>
+	</div> -->
+
+		<div class="record-loop-container">
+		
+		<div class="track">
+			<div class="record"></div>
+			<div class="play-pause">
+				<div class="play">
+					<svg viewBox="0 0 15.55 20.74">
+						<g id="Layer_1-2" data-name="Layer 1">
+							<path class="cls-1" d="M0,20.74V0L1,.67l14.55,9.7Z"/>
+						</g>
+					</svg>
+				</div>
+
+				<div class="stop">
+					<svg  viewBox="0 0 15.51 20.7" fill="white">
+						<g id="Layer_1-2" data-name="Layer 1">
+							<path class="cls-1" d="M5.53,20.7H0V0H5.53Z"/>
+							<path class="cls-1" d="M15.51,20.69H10V0h5.51Z"/>
+						</g>
+					</svg>
+				</div>
+			</div>				
+					
+				<div class="sound-wave">
+						<img src="imgs/AudioVisualizer.webp">
+						<hr>
+					<img src="imgs/AudioVisualizer.webp">
+				</div>
+
+		</div>
+		
+		<div class="track">
+				<div class="record"></div>
+				<div class="play-pause">
+					<div class="play">
+						<svg viewBox="0 0 15.55 20.74">
+							<g id="Layer_1-2" data-name="Layer 1">
+								<path class="cls-1" d="M0,20.74V0L1,.67l14.55,9.7Z"/>
+							</g>
+						</svg>
+					</div>
+	
+					<div class="stop">
+						<svg  viewBox="0 0 15.51 20.7" fill="white">
+							<g id="Layer_1-2" data-name="Layer 1">
+								<path class="cls-1" d="M5.53,20.7H0V0H5.53Z"/>
+								<path class="cls-1" d="M15.51,20.69H10V0h5.51Z"/>
+							</g>
+						</svg>
+					</div>
+				</div>				
+						
+					<div class="sound-wave">
+							<img src="imgs/AudioVisualizer.webp">
+							<hr>
+						<img src="imgs/AudioVisualizer.webp">
+					</div>
+	
+		</div>
+
+		<div class="track">
+				<div class="record"></div>
+				<div class="play-pause">
+					<div class="play">
+						<svg viewBox="0 0 15.55 20.74">
+							<g id="Layer_1-2" data-name="Layer 1">
+								<path class="cls-1" d="M0,20.74V0L1,.67l14.55,9.7Z"/>
+							</g>
+						</svg>
+					</div>
+	
+					<div class="stop">
+						<svg  viewBox="0 0 15.51 20.7" fill="white">
+							<g id="Layer_1-2" data-name="Layer 1">
+								<path class="cls-1" d="M5.53,20.7H0V0H5.53Z"/>
+								<path class="cls-1" d="M15.51,20.69H10V0h5.51Z"/>
+							</g>
+						</svg>
+					</div>
+				</div>				
+						
+					<div class="sound-wave">
+							<img src="imgs/AudioVisualizer.webp">
+							<hr>
+						<img src="imgs/AudioVisualizer.webp">
+					</div>
+	
+		</div>
+
+	</div>					
+</div>
+
+	<div class="audioTagCont">
+
+	</div>
+
+	<script>
+		init({
+			keys: [
+				{
+					keyCode: 65,
+					label: 'clap',
+					sound: 'sounds/clap.wav',
+				},
+				{
+					keyCode: 83,
+					label: 'hihat',
+					sound: 'sounds/hihat.wav',
+				},
+				{
+					keyCode: 68,
+					label: 'kick',
+					sound: 'sounds/kick.wav',
+				},
+				{
+					keyCode: 70,
+					label: 'boom',
+					sound: 'sounds/boom.wav',
+				},
+				{
+					keyCode: 71,
+					label: 'snare',
+					sound: 'sounds/snare.wav',
+				}
+			],
+		});
+	</script>
+</body>
+
+</html>

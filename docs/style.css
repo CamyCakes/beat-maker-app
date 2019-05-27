@@ -1,0 +1,213 @@
+html {
+	font-size: 10px;
+	background-size: cover;
+}
+
+body, html {
+	margin: 0;
+	padding: 0;
+	font-family: Roboto;
+}
+
+h2 {
+	font-size: 32px;
+	margin: 5% auto;
+	text-align: center;
+}
+
+.custom-button-cont {
+	display: flex;
+	justify-content: center;
+}
+
+.keys {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 0;
+	width: 100%;
+}
+
+
+.key {
+    border: 1px solid #bbbbbb;
+    margin: 1rem;
+    font-size: 1.5rem;
+    padding: 1rem 0.5rem;
+    transition: all 0.07s ease;
+    width: 70px;
+    text-align: center;
+    background: #eeeeee;
+    position: relative;
+    border-bottom: 4px solid #bbbb;
+}
+
+.key-settings {
+	background-image: url(imgs/icons/settings.svg);
+	height: 38px;
+	width: 34px;
+	background-size: 65%;
+	background-position: bottom left;
+	background-repeat: no-repeat;
+	right: -5px;
+	top: -5px;
+	position: absolute;
+}
+
+.key-settings:hover {
+	background-image: url(imgs/icons/settings-white.svg);
+}
+
+kbd {
+	display: block;
+	font-size: 4rem;
+	text-transform: uppercase;
+}
+
+.sound {
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+	color: #ffc600;
+}
+
+.create-key {
+	border-color: #75b875;
+	transition: all 0.8s;
+	padding-left: 0px;
+}
+
+.track {
+	display: flex;
+    width: 135px;
+    height: 100px;
+    justify-content: space-evenly;
+    padding-top: 4px;
+    padding-bottom: 27px;
+    margin: 22px;
+    flex-wrap: wrap;
+    position: relative;
+    background: #EEEEEE;
+    border: 1px solid #bbbbbb;
+    border-bottom: 5px solid #bbbbbb;
+}
+
+.track > * {
+    padding: 10px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.record-studio > hr{
+	width: 400px;
+    opacity: 0.2;
+    margin: 5px;
+    margin-top: 15px;
+}
+
+.record-loop-container {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.record-studio {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	text-align: center;
+}
+
+.record-title {
+	width: 100%;
+}
+
+.record {
+	position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #651d1d;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: all .2s;
+    border: solid 2px #de0d0d;
+    margin: 7px;
+    left: 0px;
+}
+
+.recording .record {
+    background: #bf1515;
+}
+
+.track svg{
+	fill: rgb(59, 59, 59);
+}
+
+.recording svg{
+	fill:rgb(201, 201, 201);
+}
+.sound-wave{
+    width: 80%;
+    pointer-events: none;
+    background: #f1f1f1;
+	height: 52px;
+	padding: 0;
+    overflow: hidden;
+	border: 1px solid #d6d6d6;
+	margin-top: 5px;
+}
+
+.sound-wave > hr{
+	width: 85%;
+    opacity: .5;
+    margin: 0px auto;
+    margin-bottom: 4px;
+	margin-top: -4px;
+	position: relative;
+	top:-9px;
+}
+
+.playing .play-pause{
+	pointer-events: none;
+}
+.stop{
+	display: none;
+}
+.playing .stop{
+	display:block;
+}
+.playing .play{
+	display: none;
+}
+.sound-wave img{
+	top: -10px;
+	width: 138%;
+    left: -21px;
+    height: 35px;
+    position: relative;
+}
+.sound-wave img:last-child {
+    position: relative;
+    top: -13px;
+    filter: hue-rotate(170deg);
+    transform: rotate(180deg) scaleX(-1);
+}
+.sound-wave img{
+	opacity: 0;
+	transition: opacity .25s;
+}
+
+.playing + .sound-wave img{
+	opacity:1;
+}
+
+.play-pause{
+	position: relative;
+    left: -4px;
+    top: 7px;
+}
