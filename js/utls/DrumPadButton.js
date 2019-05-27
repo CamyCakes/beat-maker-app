@@ -9,7 +9,6 @@ function DrumPadButton(theSettings) {
 	let label = document.createElement("span");
 	let kbd = document.createElement("kbd");
     let audio = document.createElement("audio");
-    let deleteBSound = document.createElement("div");
     
     let kCodeLabel = String.fromCharCode( settings.keyCode );
     let kCode = settings.keyCode;
@@ -26,20 +25,20 @@ function DrumPadButton(theSettings) {
     
     window.addEventListener("keydown", bindKeySound);
 
-	let keySettings = document.createElement("div");
-	keySettings.classList.add("key-settings");
-	keySettings.addEventListener("click", getKeySettings, false);
+	// let keySettings = document.createElement("div");
+	// keySettings.classList.add("key-settings");
+	// keySettings.addEventListener("click", getKeySettings, false);
 
 	// Allows us to change the keys and labels
-	label.setAttribute("contenteditable", true);
-	kbd.setAttribute("contenteditable", true);
+	// label.setAttribute("contenteditable", true);
+	// kbd.setAttribute("contenteditable", true);
 
 	// Prevents more than one character used
-	kbd.setAttribute("onkeypress", "return (this.innerText.length < 1)");
-	kbd.addEventListener("focus", focusKey);
+	// kbd.setAttribute("onkeypress", "return (this.innerText.length < 1)");
+	// kbd.addEventListener("focus", focusKey);
 
 	button.classList.add("key");
-	button.append(keySettings, kbd, label, audio);
+	button.append( kbd, label, audio);
 
 	return button;
 

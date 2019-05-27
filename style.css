@@ -3,12 +3,10 @@ html {
 	background-size: cover;
 }
 
-body,
-html {
+body, html {
 	margin: 0;
 	padding: 0;
-	font-family: sans-serif;
-	background: #ffc107;
+	font-family: Roboto;
 }
 
 h2 {
@@ -27,25 +25,22 @@ h2 {
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
-	max-width: 800px;
-	margin: 5% auto;
 	margin-bottom: 0;
+	width: 100%;
 }
 
+
 .key {
-	border: 0.4rem solid black;
-	border-radius: 0.5rem;
-	margin: 1rem;
-	font-size: 1.5rem;
-	padding: 1rem 0.5rem;
-	transition: all 0.07s ease;
-	width: 10rem;
-	text-align: center;
-	color: white;
-	background: rgba(0, 0, 0, 0.4);
-	text-shadow: 0 0 0.5rem black;
-	cursor: pointer;
-	position: relative;
+    border: 1px solid #bbbbbb;
+    margin: 1rem;
+    font-size: 1.5rem;
+    padding: 1rem 0.5rem;
+    transition: all 0.07s ease;
+    width: 70px;
+    text-align: center;
+    background: #eeeeee;
+    position: relative;
+    border-bottom: 4px solid #bbbb;
 }
 
 .key-settings {
@@ -85,19 +80,40 @@ kbd {
 
 .track {
 	display: flex;
-	width: 100px;
-	justify-content: space-evenly;
-	padding: 10px;
-	border: solid black;
-	margin: 6px;
-	font-size: 15px;
+    width: 135px;
+    height: 100px;
+    justify-content: space-evenly;
+    padding-top: 4px;
+    padding-bottom: 27px;
+    margin: 22px;
+    flex-wrap: wrap;
+    position: relative;
+    background: #EEEEEE;
+    border: 1px solid #bbbbbb;
+    border-bottom: 5px solid #bbbbbb;
+}
+
+.track > * {
+    padding: 10px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.record-studio > hr{
+	width: 400px;
+    opacity: 0.2;
+    margin: 5px;
+    margin-top: 15px;
 }
 
 .record-loop-container {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	width: 100%;
 }
+
 .record-studio {
 	display: flex;
 	justify-content: center;
@@ -105,14 +121,93 @@ kbd {
 	text-align: center;
 }
 
-#record-loop-button {
-	width: 40px;
-	padding: 5px;
-	font-size: 16px;
-	background: #d11313;
-	border: Red 2px solid;
-	height: 40px;
-	border-radius: 50%;
-	margin: 30px;
-	box-shadow: 0px 7px 11px -3px #00000066;
+.record-title {
+	width: 100%;
+}
+
+.record {
+	position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #651d1d;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: all .2s;
+    border: solid 2px #de0d0d;
+    margin: 7px;
+    left: 0px;
+}
+
+.recording .record {
+    background: #bf1515;
+}
+
+.track svg{
+	fill: rgb(59, 59, 59);
+}
+
+.recording svg{
+	fill:rgb(201, 201, 201);
+}
+.sound-wave{
+    width: 80%;
+    pointer-events: none;
+    background: #f1f1f1;
+	height: 52px;
+	padding: 0;
+    overflow: hidden;
+	border: 1px solid #d6d6d6;
+	margin-top: 5px;
+}
+
+.sound-wave > hr{
+	width: 85%;
+    opacity: .5;
+    margin: 0px auto;
+    margin-bottom: 4px;
+	margin-top: -4px;
+	position: relative;
+	top:-9px;
+}
+
+.playing .play-pause{
+	pointer-events: none;
+}
+.stop{
+	display: none;
+}
+.playing .stop{
+	display:block;
+}
+.playing .play{
+	display: none;
+}
+.sound-wave img{
+	top: -10px;
+	width: 138%;
+    left: -21px;
+    height: 35px;
+    position: relative;
+}
+.sound-wave img:last-child {
+    position: relative;
+    top: -13px;
+    filter: hue-rotate(170deg);
+    transform: rotate(180deg) scaleX(-1);
+}
+.sound-wave img{
+	opacity: 0;
+	transition: opacity .25s;
+}
+
+.playing + .sound-wave img{
+	opacity:1;
+}
+
+.play-pause{
+	position: relative;
+    left: -4px;
+    top: 7px;
 }

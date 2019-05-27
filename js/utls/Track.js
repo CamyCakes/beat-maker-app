@@ -1,83 +1,97 @@
-// Starts recording the sequence and timing of beats
-// Returns the new track sequence
+// Sets up and handles all track recordings
 
-function Track() {
-    let newTrackSequence = [];
-    let loop = false;
+function Track(target) {
+	let newTrackSequence = [];
+	let trackStart = 0;
+	let trackStop = 0;
+	let trackLength = 0;
+	let play = false;
 
-	this.record = function() {
-		window.addEventListener('keydown', recordKey);
-	};
+	/* ---- Record Button ----- */
 
-	// Removes the event listener for recording new tracks
-	this.stop = function() {
-		window.removeEventListener('keydown', recordKey);
-	};
+	let recordButton = target.querySelector(".record");
+	recordButton.addEventListener("click", recordTrack);
 
-	this.getTrackUI = function() {
-		let trackUI = document.createElement('div');
-		trackUI.classList.add('track');
+	function recordTrack() {
+		
+		newTrackSequence = [];
 
-		let deleteButton = document.createElement('span');
-		deleteButton.innerHTML = '&times;';
-		deleteButton.classList.add('delete-track');
-		deleteButton.addEventListener('click', deleteTrack);
+		target.classList.add("recording");
 
-		let playButton = document.createElement('div');
-		playButton.innerHTML = 'Play';
-		playButton.addEventListener('click', playTrack);
+		recordButton.addEventListener("click", stopRecording);
+		recordButton.removeEventListener("click", recordTrack);
 
-		let stopButton = document.createElement('div');
-		stopButton.innerHTML = 'Stop';
-		stopButton.addEventListener('click', stopTrack);
+		window.addEventListener("keydown", recordKey);
+		trackStart = new Date().getTime();
 
-		trackUI.append(playButton, stopButton, deleteButton);
+		// Finds the src of the audio tag associted with the key press
+		// Records timestamp of keypres
+		function recordKey(e) {
+			let s = document.querySelector(
+				'audio[data-key="' + e.keyCode + '"]'
+			).src;
+			newTrackSequence.push({
+				start: e.timeStamp,
+				sound: s
+			});
+		}
 
-		return trackUI;
-    };
+		function stopRecording() {
+			target.classList.remove("recording");
+			window.removeEventListener("keydown", recordKey);
 
-    this.loop = function(loop){
-        loop = loop;
-    }
+			recordButton.addEventListener("click", recordTrack);
+			recordButton.removeEventListener("click", stopRecording);
+
+			trackStop = new Date().getTime();
+			trackLength = trackStop - trackStart;
+		}
+	}
+
+	/* ---- Play Button ----- */
+
+	let playButton = target.querySelector(".play");
+	playButton.addEventListener("click", playTrack);
 
 	function playTrack() {
-        let offset = -1 * (0 - newTrackSequence[0].start);
-        let x = newTrackSequence.length;
-        let totalLength = newTrackSequence[x];
+		if (!newTrackSequence.length) return;
+		
+		playButton.parentElement.classList.add("playing");
+		play = true;
+		
+		let offset = -1 * (0 - newTrackSequence[0].start);
+		let lastBeat = newTrackSequence[newTrackSequence.length - 1];
+
+		let tmpAudio = document.createElement("audio");
+		tmpAudio.src = lastBeat.sound;
 
 		// Plays the sound timeline
 		newTrackSequence.forEach(function(beat) {
 			// Trim first beat
-            let startTime = beat.start - offset;
+			let startTime = beat.start - offset;
 			window.setTimeout(play, startTime);
 
 			function play() {
-				let tmpAud = document.createElement('audio');
+				let tmpAud = document.createElement("audio");
 				tmpAud.src = beat.sound;
 				tmpAud.play();
-				tmpAud.ended = function() {
-					console.log('ended');
-				};
-            }
-        });
-
-        console.log(totalLength);
-        
-        // playTrack();
-	}
-
-	function deleteTrack() {
-		this.parentElement.remove();
-	}
-
-	function stopTrack() {
-		console.log('stopped');
-	}
-
-	function recordKey(e) {
-		newTrackSequence.push({
-			start: e.timeStamp,
-			sound: document.querySelector('audio[data-key="' + e.keyCode + '"]').src,
+			}
 		});
+
+		window.setTimeout(function() {
+			if (!play){
+				return;
+			} 
+			playTrack();
+		}, trackLength);
+	}
+
+	/* ---- Stop Playing Button ----- */
+
+	let stopButton = target.querySelector(".stop");
+	stopButton.addEventListener("click", stopPlayingTrack);
+	function stopPlayingTrack() {
+		this.parentElement.classList.remove("playing");
+		play = false;
 	}
 }
